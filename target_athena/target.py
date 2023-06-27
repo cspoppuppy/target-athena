@@ -22,8 +22,8 @@ class TargetAthena(Target):
         th.Property("aws_profile", th.StringType),
         th.Property("s3_key_prefix", th.StringType),
         th.Property("naming_convention", th.StringType),
-        th.Property("object_format", th.StringType, default='jsonl'),
-        th.Property("compression", th.StringType, default='gzip'),
+        th.Property("object_format", th.StringType, default="jsonl"),
+        th.Property("compression", th.StringType, default="gzip"),
         th.Property("encryption_type", th.StringType),
         th.Property("encryption_key", th.StringType),
         th.Property("add_record_metadata", th.BooleanType, default=False),
@@ -33,6 +33,7 @@ class TargetAthena(Target):
         th.Property("temp_dir", th.StringType),
         th.Property("stream_maps", th.ObjectType()),
         th.Property("stream_map_config", th.ObjectType()),
+        th.Property("athena_workgroup", th.StringType, default="primary"),
     ).to_dict()
     default_sink_class = AthenaSink
 
