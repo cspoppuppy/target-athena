@@ -1,5 +1,4 @@
 import os
-import singer
 from logging import Logger
 from pyathena import connect
 
@@ -146,7 +145,7 @@ def generate_column_definitions(schema, level=0):
                     indentation=indentation,
                     name=cleaned_name,
                     separator=type_separator,
-                    type="STRING"
+                    type="STRING",
                     # type=types[0].upper()
                 )
             )

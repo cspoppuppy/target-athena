@@ -1,6 +1,7 @@
 from datetime import datetime
 import time
-import singer
+
+# import singer
 import json
 import re
 import collections
@@ -9,7 +10,7 @@ import inflection
 from decimal import Decimal
 from datetime import datetime
 
-logger = singer.get_logger("target_athena")
+# logger = singer.get_logger("target_athena")
 
 
 def float_to_decimal(value):
@@ -55,7 +56,7 @@ def flatten_record(d, parent_key=[], sep="__"):
     return dict(items)
 
 
-def get_target_key(stream_name, object_format, prefix="", timestamp=None, naming_convention=None):
+def get_target_key(stream_name, object_format="jsonl", prefix="", timestamp=None):
     """Creates and returns an S3 key for the message"""
 
     if not timestamp:
@@ -63,4 +64,4 @@ def get_target_key(stream_name, object_format, prefix="", timestamp=None, naming
 
     key = f"{prefix}{stream_name}/{timestamp}.{object_format}"
 
-    return key 
+    return key
